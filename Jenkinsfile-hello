@@ -5,7 +5,7 @@ stages
 {
  stage ('please print hello')
 {
-   step
+   steps
 {
      sh 'echo hello'
 }
