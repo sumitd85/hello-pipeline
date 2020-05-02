@@ -3,13 +3,22 @@ pipeline
 agent any
 stages
 {
- stage ('please print hello')
+ stage ('please download code')
 {
    steps
 {
-     sh 'echo hello'
+     sh 'echo download load'
 }
 }
+
+ stage ('test the code') {
+   steps { sh 'echo testing done' }}
+
+ stage ('build the code') {
+    steps { sh 'war file created'} }
+ stage ('deploy test env') {
+    steps { sh 'deploying test env' }}
+ 
 }
 }
 
