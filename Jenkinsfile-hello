@@ -15,9 +15,9 @@ stages
    steps { sh 'echo testing done' }}
 
  stage ('build the code') {
-    steps { sh 'war file created'} }
+    steps { sh 'echo war file created' }}
  stage ('deploy test env') {
-    steps { sh 'deploying test env' }}
+    steps { sh 'echo deploying test env' }}
  
 }
 }
