@@ -39,7 +39,7 @@ pipeline{
 			echo 'Prints whether deploy happened or not, success or failure'
 		}
 		success{
-			archieveArtifacts 'test_result.txt'
+			archiveArtifacts 'test-results.txt'
 		}
 	}
 }
