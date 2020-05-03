@@ -1,14 +1,14 @@
 pipeline{
 	agent any
-	environment{
-		RELEASE= 1.3
+	environment {
+		RELEASE = '1.3'
 	}
 
 	stages{
 		stage('Build'){
 			agent any
-			environment{
-				LOG_LEVEL= INFO
+			environment {
+				LOG_LEVEL = 'INFO'
 			}
 			steps{
 				sh "echo Build - Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
@@ -16,7 +16,7 @@ pipeline{
 		}
 		stage('Test'){
 			steps{
-			sh "echo Testing - Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
+				sh "echo Testing - Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
 			}
 		}
 	}
