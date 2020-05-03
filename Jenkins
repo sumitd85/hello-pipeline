@@ -1,25 +1,23 @@
 pipeline{
+	agent any
+	environment{
+		RELEASE= 1.3
+	}
 
-agent any
-environment{
-  RELEASE= 1.3
-}
-
-stages{
-  stage{
-    agent any
-    environment{
-      LOG_LEVEL= INFO
-    }
-    stages{
-      sh "echo Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
-    }
-  }
-  stage{
-    stages{
-      sh "echo Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
-    }
-  }
-}
-
+	stages{
+		stage{
+			agent any
+			environment{
+				LOG_LEVEL= INFO
+			}
+			steps{
+				sh "echo Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
+			}
+		}
+		stage{
+			steps{
+			sh "echo Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
+			}
+		}
+	}
 }
