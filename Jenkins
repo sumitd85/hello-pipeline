@@ -16,8 +16,26 @@ pipeline{
 		}
 		stage('Test'){
 			steps{
-				sh "echo Testing - Release ${RELEASE} for LogLevel ${LOG_LEVEL}"
+				sh "echo Testing - Release ${RELEASE} "
 			}
+		}
+		stage('Deploy'){
+			input{
+				message 'Deploy?'
+				ok 'Do It!!'
+				parameters{
+					string(name:TARGET_ENVIRONMENT, defaultValue:'PROD',description:'Target deployment environment')
+				}
+			}
+			steps{
+				sh "echo Deploying - Release ${RELEASE} to environment ${TARGET_ENVIRONMENT} "
+			}
+		}
+	}
+	
+	post{
+		always{
+			echo 'Prints whether deploy happened or not, success or failure'
 		}
 	}
 }
