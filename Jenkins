@@ -26,7 +26,7 @@ pipeline{
 				parameters{
 					string(name:'TARGET_ENVIRONMENT', defaultValue:'PROD',description:'Target deployment environment')
 				}
-				writeFile file:'test_result.txt' text: 'successfully deployed!!!'
+				writeFile file:'test_result.txt', text: 'successfully deployed!!!'
 			}
 			steps{
 				sh "echo Deploying - Release ${RELEASE} to environment ${TARGET_ENVIRONMENT} "
