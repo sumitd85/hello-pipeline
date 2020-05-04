@@ -48,6 +48,12 @@ pipeline{
 		always{
 			echo 'Prints whether deploy happened or not, success or failure'
 		}
+		 when {
+                expression { return params.RC }
+            } 
+            steps {
+                sh 'echo Post Build Stage'                
+            }
 		success{
 			archiveArtifacts 'test_result.txt'
 		}
@@ -61,9 +67,9 @@ void auditTools(){
 }
 
 String getVersionSuffix(){
-	if(env.RC){
+	if(params.RC){
 		return env.VERSION_NUMBER
 	}else{
-		return env.VERSION_RC + '+ci.' + env.VERSION_NUMBER
+		return env.VERSION_NUMBER + '+ci.' + env.RELEASE
 	}
 }
