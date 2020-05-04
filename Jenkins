@@ -60,7 +60,7 @@ void auditTools(){
 	   '''
 }
 
-string getVersionSuffix(){
+String getVersionSuffix(){
 	if(env.RC){
 		return env.VERSION_NUMBER
 	}else{
