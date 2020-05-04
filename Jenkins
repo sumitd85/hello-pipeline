@@ -1,3 +1,5 @@
+library identifier:'shared-library@master', retriever:modernSCM([$class:'GitSCMSource',remote:'https://github.com/sumitd85/shared-library.git')
+
 pipeline{
 	agent any
 	
@@ -56,12 +58,6 @@ pipeline{
 			archiveArtifacts 'test_result.txt'
 		}
 	}
-}
-
-void auditTools(){
-	sh '''
-		git version
-	   '''
 }
 
 String getVersionSuffix(){
