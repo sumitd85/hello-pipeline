@@ -13,7 +13,7 @@ pipeline{
 	stages{
 		stage('audit tools'){
 			steps{
-				auditTools(message: 'This is demo 2')
+				auditTools message: 'This is demo 2'
 			}
 		}
 		stage('Build'){
