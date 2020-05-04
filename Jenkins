@@ -20,6 +20,9 @@ pipeline{
 				LOG_LEVEL = 'INFO'
 				SUFFIX = getVersionSuffix()
 			}
+			when {
+                expression { return params.RC }
+            } 
 			steps{
 				sh "echo Build - Release ${SUFFIX} for LogLevel ${LOG_LEVEL}"
 			}
@@ -48,12 +51,7 @@ pipeline{
 		always{
 			echo 'Prints whether deploy happened or not, success or failure'
 		}
-		 when {
-                expression { return params.RC }
-            } 
-            steps {
-                sh 'echo Post Build Stage'                
-            }
+		 
 		success{
 			archiveArtifacts 'test_result.txt'
 		}
